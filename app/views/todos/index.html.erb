@@ -1,4 +1,9 @@
 <%= link_to "Add a new todo", new_todo_path %>
+<br><br>
+
+<!-- For line 6: Go to routes.rb and find the path "/todos/:sort" to which replace ":sort" with sort type. This means go to todos_controller and call index method (as there are no additional paths) and give it :sort -->
+<%= button_to "Sort alphabetically", "/todos/alphabetical", method: :get %>
+<br><br>
 
 <ul class="todos">
     <% @todos.each do |todo| %>
