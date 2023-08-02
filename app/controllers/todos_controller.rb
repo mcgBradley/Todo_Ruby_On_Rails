@@ -1,7 +1,11 @@
 class TodosController < ApplicationController
     before_action :authenticate
     def index
-        @todos = current_user.todos
+        if params[:sort] == 'alphabetical'
+            @todos = current_user.todos.order(:title)
+        else
+            @todos = current_user.todos
+        end
     end
 
     def new
