@@ -2,7 +2,12 @@
 <br><br>
 
 <!-- For line 6: Go to routes.rb and find the path "/todos/:sort" to which replace ":sort" with sort type. This means go to todos_controller and call index method (as there are no additional paths) and give it :sort -->
+<%= button_to "No sort", "/todos/none", method: :get %>
 <%= button_to "Sort alphabetically", "/todos/alphabetical", method: :get %>
+<%= button_to "Sort alphabetically DESC", "/todos/alphabetical_desc", method: :get %>
+<%= button_to "Sort newest to oldest", "/todos/new_to_old", method: :get %>
+<%= button_to "Sort oldest to newest", "/todos/old_to_new", method: :get %>
+
 <br><br>
 
 <ul class="todos">
