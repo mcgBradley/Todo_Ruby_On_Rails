@@ -7,7 +7,9 @@ feature "User sorts todos aphabetically" do
         create_todo "Exercise"
         create_todo "Buy milk"
 
-        click_on "Sort alphabetically"
+        select "Sort alphabetically", from: "sort"
+        
+        click_button "Submit"
 
         expect("Buy milk").to appear_before("Exercise")
     end

@@ -7,7 +7,9 @@ feature "User sorts todos newest to oldest" do
         create_todo "Exercise"
         create_todo "Buy milk"
 
-        click_on "Sort newest to oldest"
+        select "Sort newest to oldest", :from => "sort"
+
+        click_on "Submit"
 
         expect("Buy milk").to appear_before("Exercise")
     end
