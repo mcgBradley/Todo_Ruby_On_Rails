@@ -1,12 +1,27 @@
 <%= link_to "Add a new todo", new_todo_path %>
 <br><br>
 
-<!-- For line 6: Go to routes.rb and find the path "/todos/:sort" to which replace ":sort" with sort type. This means go to todos_controller and call index method (as there are no additional paths) and give it :sort -->
-<%= button_to "No sort", "/todos/none", method: :get %>
-<%= button_to "Sort alphabetically", "/todos/alphabetical", method: :get %>
-<%= button_to "Sort alphabetically DESC", "/todos/alphabetical_desc", method: :get %>
-<%= button_to "Sort newest to oldest", "/todos/new_to_old", method: :get %>
-<%= button_to "Sort oldest to newest", "/todos/old_to_new", method: :get %>
+<form id="sort_form">
+    <label for="sort">Sort to-dos:</label>
+    <select name="sort" id="sort" value="none">
+        <option value="none">
+            No sort
+        </option>
+        <option value="alphabetical"> 
+            Sort alphabetically
+        </option>
+        <option value="alphabetical_desc"> 
+            Sort alphabetically DESC
+        </option>
+        <option value="new_to_old"> 
+            Sort newest to oldest
+        </option>
+        <option value="old_to_new"> 
+            Sort oldest to newest
+        </option>
+    </select>
+    <button type="submit">Submit</button>
+</form>
 
 <br><br>
 
@@ -21,3 +36,17 @@
         <% end %>
     <% end %>
 </ul>
+
+<script>
+
+    document.getElementById('sort').onchange = function () {
+        console.log(this.value);
+        localStorage.setItem('sort_type', this.value);
+    }
+
+    window.onload = function () {
+        document.getElementById('sort').value = localStorage.getItem('sort_type');
+        console.log(localStorage.getItem('sort_type'));
+    }
+
+</script>

@@ -7,7 +7,9 @@ feature "User sorts todos with no sort" do
         create_todo "Exercise"
         create_todo "Buy milk"
 
-        click_on "No sort"
+        select "No sort", :from => "sort"
+
+        click_on "Submit"
 
         expect("Exercise").to appear_before("Buy milk")
     end
