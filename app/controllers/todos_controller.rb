@@ -1,7 +1,11 @@
 class TodosController < ApplicationController
-    @@sort_Type = "none"
+    @sort_Type = "none"
     before_action :authenticate
+
     def index
+        todos_per_page = 3
+        @page = params.fetch(:page, 0).to_i
+
         if params[:sort]
             @@sort_Type = params[:sort]
         end
@@ -16,6 +20,9 @@ class TodosController < ApplicationController
         elsif @@sort_Type == "old_to_new"
             @todos = current_user.todos.order('created_at ASC')
         end
+
+        @todos_at_page = @todos[@page, todos_per_page]
+        #@todos_page = current_user.todos.kami(params[:kami]).per(5)
     end
 
     def new
