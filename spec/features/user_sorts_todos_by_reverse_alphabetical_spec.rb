@@ -7,7 +7,7 @@ feature "User sorts todos alphabetically DESC" do
         create_todo "Buy milk"
         create_todo "Exercise"
 
-        select "Sort alphabetically DESC", :from => "sort"
+        select "Sort alphabetically descending", :from => "sort"
 
         click_on "Submit"
 

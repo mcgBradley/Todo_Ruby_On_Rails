@@ -7,7 +7,7 @@ feature "User sorts todos aphabetically" do
         create_todo "Exercise"
         create_todo "Buy milk"
 
-        select "Sort alphabetically", from: "sort"
+        select "Sort alphabetically ascending", from: "sort"
         
         click_button "Submit"
 
