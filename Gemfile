@@ -9,6 +9,7 @@ gem "sqlite3", "~> 1.4"
 gem "puma", "~> 5.0"
 gem "bootsnap", require: false
 gem "sassc-rails"
+gem "kaminari"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]

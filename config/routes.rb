@@ -5,7 +5,5 @@ Rails.application.routes.draw do
     resource :completion, only: [:create, :destroy]
   end
 
-  get "/todos/:sort", to: "todos#index"
-
   resource :session, only: [:new, :create]
 end
