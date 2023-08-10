@@ -33,16 +33,20 @@
 
  div.bordertodos {
     border: 2px solid black;
+    width: 300px;
+    height: 300px;
  }
 
  li.completed {
+    background-color: green;
     border: 2px solid green;
- }
-
- .buttontoincomplete {
-    border: 2px solid green;
+    margin-bottom: 100px;
+    padding-bottom: 50px;
  }
 
  li.incompleted {
+    background-color: red;
     border: 2px solid red;
+    margin-bottom: 100px;
+    padding-bottom: 50px;
  }
