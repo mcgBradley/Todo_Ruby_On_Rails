@@ -13,3 +13,36 @@
  *= require_tree .
  *= require_self
  */
+
+ body {
+    background-color: white;
+    text-align: center;
+ }
+
+ ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+ }
+
+ div.horizontalblocks {
+    display: inline-block;
+ }
+
+ div.bordertodos {
+    border: 2px solid black;
+ }
+
+ li.completed {
+    border: 2px solid green;
+ }
+
+ .buttontoincomplete {
+    border: 2px solid green;
+ }
+
+ li.incompleted {
+    border: 2px solid red;
+ }

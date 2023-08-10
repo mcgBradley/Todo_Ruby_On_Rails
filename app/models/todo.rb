@@ -1,5 +1,5 @@
 class Todo < ApplicationRecord
-    paginates_per 4
+    paginates_per 5
     def completed?
         completed_at?
     end

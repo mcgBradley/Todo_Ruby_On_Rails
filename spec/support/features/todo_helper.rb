@@ -5,6 +5,16 @@ module Features
         click_on "Submit"
     end
 
+    def create_todos(todos_collection)
+        todos_collection.each do |todo| 
+            create_todo(todo)
+        end
+    end
+
+    def create_pagination_todos()
+        create_todos(["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"])
+    end
+
     def display_todo(todo_title)
         have_css ".todos li", text: todo_title
     end
