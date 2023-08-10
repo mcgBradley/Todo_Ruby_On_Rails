@@ -5,7 +5,7 @@ module Features
         click_on "Submit"
     end
 
-    def display_li()
+    def display_li
         have_css ".todos li"
     end
 
@@ -20,5 +20,10 @@ module Features
     def select_sort(sort)
         select sort, from: "sort"
         click_button "Submit"
+    end
+
+    def before_sort_select
+        create_todo "Exercise"
+        create_todo "Buy milk"
     end
 end
