@@ -7,7 +7,7 @@ feature ".index" do
 
     context "when selecting alphabetical sort" do
         before do
-            before_sort_select
+            create_two_worded_todos
         end
 
         it "sorts todos alphabetically" do
@@ -19,7 +19,7 @@ feature ".index" do
 
     context "when selecting newest to oldest sort" do
         before do
-            before_sort_select
+            create_two_worded_todos
         end
 
         it "sorts todos newest to oldest" do
@@ -31,7 +31,7 @@ feature ".index" do
 
     context "when selecting oldest to newest sort" do
         before do
-            before_sort_select
+            create_two_worded_todos
         end
 
         it "sorts todos oldest to newest" do
@@ -43,7 +43,7 @@ feature ".index" do
 
     context "when selecting reverse alphabetical sort" do
         before do
-            before_sort_select
+            create_two_worded_todos
         end
 
         it "sorts todos reverse alphabetically" do
@@ -55,7 +55,7 @@ feature ".index" do
 
     context "when selecting no sort" do
         before do
-            before_sort_select
+            create_two_worded_todos
         end
 
         it "does not sort the todos" do
@@ -66,10 +66,6 @@ feature ".index" do
     end
 
     context "when sorting no todos alphabetically" do
-        before do
-
-        end
-
         it "does not detect a todo" do
             select_sort("Sort alphabetically")
 

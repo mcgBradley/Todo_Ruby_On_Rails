@@ -22,7 +22,7 @@ module Features
         click_button "Submit"
     end
 
-    def before_sort_select
+    def create_two_worded_todos
         create_todo "Exercise"
         create_todo "Buy milk"
     end
