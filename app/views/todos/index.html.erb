@@ -18,6 +18,7 @@
                 <li class="<%= todo.completed? ? "completed" : "incompleted" %>">
                 <%= todo.title %>
                 </li>
+                <img src="" alt="User input image" width="200" height="200">
                 <% if todo.completed? %>
                     <%= button_to "Mark incomplete", todo_completion_path(todo), method: :delete %>
                 <% else %>
