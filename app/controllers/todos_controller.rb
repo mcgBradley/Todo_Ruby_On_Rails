@@ -1,7 +1,16 @@
 class TodosController < ApplicationController
     before_action :authenticate
+
+    DEFAULT_ORDER = "old_to_new".freeze
+    ORDER_OPTIONS = {
+        "alphabetical" => {title: :asc},
+        "new_to_old" => {created_at: :desc},
+        "alphabetical_desc" => {title: :desc},
+        "old_to_new" => {created_at: :asc}
+    }.tap {|h| h.default = h[DEFAULT_ORDER] }.freeze
+
     def index
-        @todos = current_user.todos
+        @todos = current_user.todos.order(ORDER_OPTIONS[params[:sort]])
     end
 
     def new
