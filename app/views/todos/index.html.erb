@@ -17,6 +17,7 @@
             <div class="bordertodos">
                 <li class="<%= todo.completed? ? "completed" : "incompleted" %>">
                 <%= todo.title %>
+                <%= button_to "Delete to-do", todo_path(todo), method: :delete, :form => { :id => todo.title + " deletion"} %>
                 </li>
                 <img src="" alt="User input image" width="200" height="200">
                 <% if todo.completed? %>

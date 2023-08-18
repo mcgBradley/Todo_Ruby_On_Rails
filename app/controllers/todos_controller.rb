@@ -18,13 +18,18 @@ class TodosController < ApplicationController
     end
 
     def create
-        current_user.todos.create(todo_params)
+        current_user.todos.create(todo_title_params)
         redirect_to todos_path
+    end
+
+    def destroy
+        current_user.todos.delete(params[:id])
+        redirect_back_or_to todos_path
     end
 
     private
 
-    def todo_params
+    def todo_title_params
         params.require(:todo).permit(:title)
     end
 
