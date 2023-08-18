@@ -23,6 +23,10 @@ module Features
         have_css ".todos li.completed", text: todo_title
     end
 
+    def display_li
+        have_css ".todos li"
+    end
+
     def select_sort(sort)
         select sort, from: "sort"
         click_button "Submit"
