@@ -11,7 +11,7 @@ feature ".index" do
         end
 
         it "sorts todos alphabetically" do
-            select_sort("Sort alphabetically")
+            select_sort("Sort alphabetically ascending")
 
             expect("Buy milk").to appear_before("Exercise")
         end
@@ -47,19 +47,7 @@ feature ".index" do
         end
 
         it "sorts todos reverse alphabetically" do
-            select_sort("Sort alphabetically DESC")
-
-            expect("Exercise").to appear_before("Buy milk")
-        end
-    end
-
-    context "when selecting no sort" do
-        before do
-            create_two_worded_todos
-        end
-
-        it "does not sort the todos" do
-            select_sort("No sort")
+            select_sort("Sort alphabetically descending")
 
             expect("Exercise").to appear_before("Buy milk")
         end
@@ -67,7 +55,7 @@ feature ".index" do
 
     context "when sorting no todos alphabetically" do
         it "does not detect a todo" do
-            select_sort("Sort alphabetically")
+            select_sort("Sort alphabetically ascending")
 
             expect(page).not_to display_li
         end
@@ -81,13 +69,13 @@ feature ".index" do
         end
 
         it "sorts numbers before letters" do
-            select_sort("Sort alphabetically")
+            select_sort("Sort alphabetically ascending")
 
             expect("1").to appear_before("A")
         end
 
         it "sorts numbers before symbols" do
-            select_sort("Sort alphabetically")
+            select_sort("Sort alphabetically ascending")
 
             expect("1").to appear_before("@")
         end
@@ -106,7 +94,7 @@ feature ".index" do
 
     context "when sorting empty todo with a todo" do
         it "appears before the non-empty todo" do
-            select_sort("Sort alphabetically")
+            select_sort("Sort alphabetically ascending")
 
             expect("").to appear_before("A")
         end

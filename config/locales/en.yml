@@ -31,3 +31,8 @@
 
 en:
   hello: "Hello world"
+  sort_options:
+    alphabetical: Sort alphabetically ascending
+    alphabetical_desc: Sort alphabetically descending
+    new_to_old: Sort newest to oldest
+    old_to_new: Sort oldest to newest

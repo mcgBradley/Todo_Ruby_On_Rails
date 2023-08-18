@@ -1,52 +1,32 @@
 <%= link_to "Add a new todo", new_todo_path %>
 <br><br>
 
-<form id="sort_form">
-    <label for="sort">Sort to-dos:</label>
-    <select name="sort" id="sort" value="none">
-        <option value="none">
-            No sort
-        </option>
-        <option value="alphabetical"> 
-            Sort alphabetically
-        </option>
-        <option value="alphabetical_desc"> 
-            Sort alphabetically DESC
-        </option>
-        <option value="new_to_old"> 
-            Sort newest to oldest
-        </option>
-        <option value="old_to_new"> 
-            Sort oldest to newest
-        </option>
-    </select>
-    <button type="submit">Submit</button>
-</form>
+<div>
+    <%= form_with url: "/", method: :get do |form| %> 
+        <%= form.label :sort, "Sort to-dos" %>
+        <%= form.select :sort, todos_sort_select_options %>
+        <%= form.submit "Submit" %>
+    <% end %>
+</div>
 
 <br><br>
 
 <ul class="todos">
     <% @todos.each do |todo| %>
-        <li class="<%= "completed" if todo.completed? %>">
-        <%= todo.title %></li>
-        <% if todo.completed? %>
-            <%= button_to "Mark incomplete", todo_completion_path(todo), method: :delete %>
-        <% else %>
-            <%= button_to "Mark complete", todo_completion_path(todo) %>
-        <% end %>
+        <div class="horizontalblocks">
+            <div class="bordertodos">
+                <li class="<%= todo.completed? ? "completed" : "incompleted" %>">
+                <%= todo.title %>
+                </li>
+                <img src="" alt="User input image" width="200" height="200">
+                <% if todo.completed? %>
+                    <%= button_to "Mark incomplete", todo_completion_path(todo), method: :delete %>
+                <% else %>
+                    <%= button_to "Mark complete", todo_completion_path(todo) %>
+                <% end %>
+            </div>
+        </div>
     <% end %>
 </ul>
 
-<script>
-
-    document.getElementById('sort').onchange = function () {
-        console.log(this.value);
-        localStorage.setItem('sort_type', this.value);
-    }
-
-    window.onload = function () {
-        document.getElementById('sort').value = localStorage.getItem('sort_type');
-        console.log(localStorage.getItem('sort_type'));
-    }
-
-</script>
+<%= paginate @todos %>

@@ -10,7 +10,7 @@ class TodosController < ApplicationController
     }.tap {|h| h.default = h[DEFAULT_ORDER] }.freeze
 
     def index
-        @todos = current_user.todos.order(ORDER_OPTIONS[params[:sort]])
+        @todos = current_user.todos.order(ORDER_OPTIONS[params[:sort]]).page(params[:page])
     end
 
     def new

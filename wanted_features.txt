@@ -1,0 +1,3 @@
+Features that I want to implement in this rails todo app:
+    1. Implement a delete todo button (even better implementation is to add one unique for every todo).
+    2. 
