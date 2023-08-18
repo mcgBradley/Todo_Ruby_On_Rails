@@ -80,23 +80,4 @@ feature ".index" do
             expect("1").to appear_before("@")
         end
     end
-
-    context "when creating empty todo" do
-        before do
-            create_todo ""
-            create_todo "A"
-        end
-
-        it "lists the empty todo" do
-            expect(page).to display_todo ""
-        end
-    end
-
-    context "when sorting empty todo with a todo" do
-        it "appears before the non-empty todo" do
-            select_sort("Sort alphabetically ascending")
-
-            expect("").to appear_before("A")
-        end
-    end
 end

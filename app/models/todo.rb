@@ -1,4 +1,5 @@
 class Todo < ApplicationRecord
+    validates :title, presence: true
     paginates_per 4
     def completed?
         completed_at?

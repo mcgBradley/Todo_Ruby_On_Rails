@@ -14,7 +14,7 @@ end
 
 describe Todo, "#complete!" do
     it "update completed_at" do
-        todo = Todo.create!(completed_at: nil)
+        todo = Todo.create!(title: "A", completed_at: nil)
 
         todo.complete!
 
@@ -26,7 +26,7 @@ end
 
 describe Todo, "#incomplete!" do
     it "sets completed_at to nil" do
-        todo = Todo.create!(completed_at: Time.current)
+        todo = Todo.create!(title: "A", completed_at: Time.current)
 
         todo.mark_incomplete!
 
